@@ -1,0 +1,28 @@
+/* Configurações básicas da página */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 300px; /* Limita a largura para os inputs não ficarem gigantes */
+  margin: 0 auto;    /* Centraliza a página na tela */
+  
+  /* Esse bloco abaixo é a mágica que alinha tudo na vertical */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;         /* Cria um espaço uniforme entre cada linha */
+}
+
+/* Deixa as caixas de texto com um visual mais bonito e alinhado */
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;       /* Faz todos os inputs terem o mesmo tamanho */
+  box-sizing: border-box; /* Garante que o padding não quebre o tamanho do input */
+}
+
+/* Efeito simples quando o usuário clica para digitar no input */
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
