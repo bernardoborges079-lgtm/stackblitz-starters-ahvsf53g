@@ -71,7 +71,18 @@ input:focus, select:focus {
   font-size: 12px;
 }
 
-/* Estado inativo do botão */
+/* Botão de salvar */
+.btn-salvar {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Botão de salvar inativo */
 .btn-salvar:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
