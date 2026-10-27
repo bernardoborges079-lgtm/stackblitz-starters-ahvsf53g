@@ -2,27 +2,113 @@
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
-  max-width: 300px; /* Limita a largura para os inputs não ficarem gigantes */
-  margin: 0 auto;    /* Centraliza a página na tela */
-  
-  /* Esse bloco abaixo é a mágica que alinha tudo na vertical */
+  max-width: 350px; /* Aumentado levemente para caber a tabela com folga */
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;         /* Cria um espaço uniforme entre cada linha */
+  gap: 15px;
 }
 
-/* Deixa as caixas de texto com um visual mais bonito e alinhado */
-input {
+/* Container dos botões das abas */
+.tabs-container {
+  display: flex;
+  gap: 5px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+/* Estilo dos botões das abas */
+.tab-button {
+  flex: 1;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px 4px 0 0;
+  transition: background-color 0.2s;
+}
+
+/* Visual do botão da aba selecionada */
+.tab-button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  font-weight: bold;
+}
+
+/* Esconde as abas por padrão */
+.tab-content {
+  display: none; 
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Mostra apenas a aba ativa */
+.tab-content.active {
+  display: flex; 
+}
+
+/* Estilo dos inputs e selects */
+input, select {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-  width: 100%;       /* Faz todos os inputs terem o mesmo tamanho */
-  box-sizing: border-box; /* Garante que o padding não quebre o tamanho do input */
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Efeito simples quando o usuário clica para digitar no input */
-input:focus {
+input:focus, select:focus {
   outline: none;
   border-color: #007bff;
+}
+
+
+.notas-group div {
+  flex: 1;
+  font-size: 12px;
+}
+
+/* Estado inativo do botão */
+.btn-salvar:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Estilo para a lista de alunos e tabelas */
+.lista-alunos {
+  list-style: none;
+  padding: 0;
+}
+
+.card-aluno {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+
+.card-aluno h4 {
+  margin: 0 0 10px 0;
+  color: #007bff;
+}
+
+.tabela-notas {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.tabela-notas th, .tabela-notas td {
+  border: 1px solid #ddd;
+  padding: 6px 8px;
+  text-align: left;
+}
+
+.tabela-notas th {
+  background-color: #f2f2f2;
 }

@@ -1,18 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pen</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <script src="Aluno.js" defer></script>
+    <title>Sistema Escolar</title>
   </head>
   <body>
-    <script src="./script.js"></script>
-    Nome: <input type="text">
-    Nota 1: <input type="text" id="n1">
-    Nota 2: <input type="text" id="n2">
-    Nota 3: <input type="text" id="n3">
-    <button onclick="calcular()">Calcular</button>
-    <div id="media">Média:</div>
+    <!-- Botões para trocar de aba -->
+    <div class="tabs-container">
+      <button class="tab-button active" id="btn-cadastrar" onclick="cadastrar()">Cadastrar</button>
+      <button class="tab-button" id="btn-listar" onclick="listar()">
+        Listar Alunos
+      </button>
+    </div>
+
+    <!-- Conteúdo da Aba 1: Cadastrar -->
+    <div id="tab-cadastrar" class="tab-content active">
+      <label for="nome">Nome do Aluno:</label>
+      <input id="nome" type="text" oninput="validarPreenchimento()"/>
+
+      <label for="disciplina">Selecione a Disciplina:</label>
+      <select id="disciplina" onchange="carregarNotasDisciplina()">
+        <option value="">Selecione uma disciplina</option>
+        <option value="matematica">Matemática</option>
+        <option value="portugues">Português</option>
+        <option value="ciencia">Ciência</option>
+        <option value="historia">História</option>
+        <option value="geografia">Geografia</option>
+      </select>
+
+      <div class="notas-group">
+        <div>Nota 1: <input id="n1" type="number" min="0" max="10" step="0.1" oninput="registrarNotas()" /></div>
+        <div>Nota 2: <input id="n2" type="number" min="0" max="10" step="0.1" oninput="registrarNotas()" /></div>
+        <div>Nota 3: <input id="n3" type="number" min="0" max="10" step="0.1" oninput="registrarNotas()" /></div>
+      </div>
+
+    <!-- Conteúdo da Aba 2: Listar -->
+    <div id="tab-listar" class="tab-content">
+      <h3>Alunos Cadastrados</h3>
+      <ul class="lista-alunos" id="alunos">
+        <!-- O JavaScript vai colocar as tabelas dos alunos aqui -->
+        <li>Nenhum aluno cadastrado ainda.</li>
+      </ul>
+    </div>
   </body>
 </html>
