@@ -1,53 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="./tabStyle.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="Aluno.js" defer></script>
-    <script src="Interface.js" defer></script>
-    <script src="main.js" defer></script>
-    <title>Sistema Escolar</title>
-  </head>
-  <body>
-    <!-- Botões para trocar de aba -->
-    <div class="tabs-container">
-      <button class="tab-button active" id="btn-cadastrar" onclick="cadastroAluno()">Cadastrar</button>
-      <button class="tab-button" id="btn-listar" onclick="listarAluno()">Listar Alunos</button>
-    </div>
+ <head>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="./styles.css" />
+   <link rel="stylesheet" href="./tabStyle.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <script src="Aluno.js" defer></script>
+   <script src="Interface.js" defer></script>
+   <script src="main.js" defer></script>
+   <title>Sistema Escolar</title>
+ </head>
+ <body>
+   <!-- Botões para trocar de aba -->
+   <div class="tabs-container">
+     <button class="tab-button active" id="btn-cadastrar" onclick="Interface.cadastrar()">Cadastrar</button>
+     <button class="tab-button" id="btn-listar" onclick="listarAluno()">
+       Listar Alunos
+     </button>
+   </div>
 
-    <!-- Conteúdo da Aba 1: Cadastrar -->
-    <div id="tab-cadastrar" class="tab-content active">
-      <label for="nome">Nome do Aluno:</label>
-      <input id="nome" type="text" oninput="Interface.validarPreenchimento()" placeholder="Digite o nome do aluno" />
 
-      <label for="disciplina">Selecione a Disciplina:</label>
-      <select id="disciplina" onchange="Interface.carregarNotasDisciplina()">
-        <option value="">Selecione uma disciplina</option>
-        <option value="matematica">Matemática</option>
-        <option value="portugues">Português</option>
-        <option value="ciencia">Ciência</option>
-        <option value="historia">História</option>
-        <option value="geografia">Geografia</option>
-      </select>
+   <!-- Conteúdo da Aba 1: Cadastrar -->
+   <div id="tab-cadastrar" class="tab-content active">
+     Nome: <input id="nome" type="text" /> Nota 1:
+     <input id="n1" type="text" /> Nota 2: <input id="n2" type="text" /> Nota
+     3: <input id="n3" type="text" />
+     <button onclick="btnSalvar()" class="btn-salvar">Salvar Aluno</button>
+   </div>
 
-      <div class="notas-group">
-        <div>Nota 1: <input id="n1" type="number" step="0.1" min="0" max="10" oninput="Interface.registrarNotas()" /></div>
-        <div>Nota 2: <input id="n2" type="number" step="0.1" min="0" max="10" oninput="Interface.registrarNotas()" /></div>
-        <div>Nota 3: <input id="n3" type="number" step="0.1" min="0" max="10" oninput="Interface.registrarNotas()" /></div>
-      </div>
 
-      <button id="btn-salvar" onclick="btnSalvar()" class="btn-salvar" disabled>Salvar Aluno</button>
-    </div>
-
-    <!-- Conteúdo da Aba 2: Listar -->
-    <div id="tab-listar" class="tab-content">
-      <h3>Alunos Cadastrados</h3>
-      <div class="lista-alunos" id="alunos">
-        <!-- As tabelas dos alunos serão renderizadas aqui -->
-        <p>Nenhum aluno cadastrado ainda.</p>
-      </div>
-    </div>
-  </body>
+   <!-- Conteúdo da Aba 2: Listar -->
+   <div id="tab-listar" class="tab-content">
+     <h3>Alunos Cadastrados</h3>
+     <ul class="lista-alunos" id="alunos">
+       <!-- O JavaScript vai colocar os alunos aqui depois -->
+       <li>Nenhum aluno cadastrado ainda.</li>
+     </ul>
+   </div>
+ </body>
 </html>

@@ -1,25 +1,21 @@
 class Aluno {
   #nome;
-  matematica;
-  portugues;
-  ciencia;
-  historia;
-  geografia;
-
-  constructor(nome, matematica, portugues, ciencia, historia, geografia) {
+  nota1;
+  nota2;
+  nota3;
+  estado;
+  media;
+  constructor(nome, nota1, nota2, nota3) {
     this.#nome = nome;
-    this.matematica = matematica;
-    this.portugues = portugues;
-    this.ciencia = ciencia;
-    this.historia = historia;
-    this.geografia = geografia;
+    this.nota1 = nota1;
+    this.nota2 = nota2;
+    this.nota3 = nota3;
   }
-
   gerarMedia(nota1, nota2, nota3) {
     let m = (nota1 + nota2 + nota3) / 3;
-    return Number(m.toFixed(1));
+    this.media = m;
+    return m;
   }
-
   gerarEstado(media) {
     let est;
     if (media >= 6) {
@@ -29,14 +25,14 @@ class Aluno {
     } else {
       est = 'Reprovado';
     }
+    this.estado = est;
     return est;
   }
-
-  getNome() {
+  getNome(){
     return this.#nome;
   }
-
-  setNome(nome) {
+  setNome(nome){
     this.#nome = nome;
   }
-}
+ } //fim da classe
+ 
