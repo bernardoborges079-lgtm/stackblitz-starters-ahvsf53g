@@ -8,20 +8,18 @@ class Interface {
       geografia: null
     };
   
-    // Guarda o índice do aluno em edição (-1 significa novo cadastro)
     static #alunoEditandoIndex = -1;
   
     constructor() {}
   
-    // Mapeia o texto da situação para a classe de cor CSS
-    static #obterClasseEstado(estado) {
+    // Retorna a classe CSS correspondente à cor do estado
+    static obterClasseEstado(estado) {
       if (estado === 'Aprovado') return 'status-aprovado';
       if (estado === 'Recuperação') return 'status-recuperacao';
       if (estado === 'Reprovado') return 'status-reprovado';
       return '';
     }
   
-    // Carrega as notas salvas no formulário ao trocar o seletor de disciplinas
     static carregarNotasDisciplina() {
       const disc = document.getElementById('disciplina').value;
       const n1 = document.getElementById('n1');
@@ -54,7 +52,6 @@ class Interface {
       }
     }
   
-    // Registra as notas digitadas para a matéria selecionada
     static registrarNotas() {
       const disc = document.getElementById('disciplina').value;
       if (!disc) return;
@@ -76,7 +73,6 @@ class Interface {
       Interface.validarPreenchimento();
     }
   
-    // Habilita o botão 'Salvar Aluno' somente se Nome e TODAS as 5 matérias tiverem 3 notas
     static validarPreenchimento() {
       const nome = document.getElementById('nome').value.trim();
       const btnSalvar = document.querySelector('.btn-salvar');
@@ -144,7 +140,6 @@ class Interface {
       btnSalvar.disabled = true;
     }
   
-    // Carrega os dados do aluno de volta no formulário para edição
     static editar(index, turma) {
       const aluno = turma[index];
       if (!aluno) return;
@@ -184,7 +179,7 @@ class Interface {
       const conteinerAlunos = document.getElementById('alunos');
   
       if (turma.length === 0) {
-        conteinerAlunos.innerHTML = '<li>Nenhum aluno cadastrado ainda.</li>';
+        conteinerAlunos.innerHTML = '<p>Nenhum aluno cadastrado ainda.</p>';
         return;
       }
   
@@ -215,11 +210,11 @@ class Interface {
               </tr>
             </thead>
             <tbody>
-              <tr><td>Matemática</td><td>${mat.n1}</td><td>${mat.n2}</td><td>${mat.n3}</td><td>${mat.media.toFixed(2)}</td><td class="${Interface.#obterClasseEstado(mat.estado)}">${mat.estado}</td></tr>
-              <tr><td>Português</td><td>${port.n1}</td><td>${port.n2}</td><td>${port.n3}</td><td>${port.media.toFixed(2)}</td><td class="${Interface.#obterClasseEstado(port.estado)}">${port.estado}</td></tr>
-              <tr><td>Ciência</td><td>${cie.n1}</td><td>${cie.n2}</td><td>${cie.n3}</td><td>${cie.media.toFixed(2)}</td><td class="${Interface.#obterClasseEstado(cie.estado)}">${cie.estado}</td></tr>
-              <tr><td>História</td><td>${hist.n1}</td><td>${hist.n2}</td><td>${hist.n3}</td><td>${hist.media.toFixed(2)}</td><td class="${Interface.#obterClasseEstado(hist.estado)}">${hist.estado}</td></tr>
-              <tr><td>Geografia</td><td>${geo.n1}</td><td>${geo.n2}</td><td>${geo.n3}</td><td>${geo.media.toFixed(2)}</td><td class="${Interface.#obterClasseEstado(geo.estado)}">${geo.estado}</td></tr>
+              <tr><td>Matemática</td><td>${mat.n1}</td><td>${mat.n2}</td><td>${mat.n3}</td><td>${mat.media.toFixed(2)}</td><td class="${Interface.obterClasseEstado(mat.estado)}">${mat.estado}</td></tr>
+              <tr><td>Português</td><td>${port.n1}</td><td>${port.n2}</td><td>${port.n3}</td><td>${port.media.toFixed(2)}</td><td class="${Interface.obterClasseEstado(port.estado)}">${port.estado}</td></tr>
+              <tr><td>Ciência</td><td>${cie.n1}</td><td>${cie.n2}</td><td>${cie.n3}</td><td>${cie.media.toFixed(2)}</td><td class="${Interface.obterClasseEstado(cie.estado)}">${cie.estado}</td></tr>
+              <tr><td>História</td><td>${hist.n1}</td><td>${hist.n2}</td><td>${hist.n3}</td><td>${hist.media.toFixed(2)}</td><td class="${Interface.obterClasseEstado(hist.estado)}">${hist.estado}</td></tr>
+              <tr><td>Geografia</td><td>${geo.n1}</td><td>${geo.n2}</td><td>${geo.n3}</td><td>${geo.media.toFixed(2)}</td><td class="${Interface.obterClasseEstado(geo.estado)}">${geo.estado}</td></tr>
             </tbody>
           </table>
         </div><br>`;
@@ -240,4 +235,4 @@ class Interface {
       tabListar.classList.remove('active');
       tabCadastrar.classList.add('active');
     }
-  } // fim da classe
+  }

@@ -42,19 +42,19 @@
     border-radius: 0 6px 6px 0;
   }
   
-  /* --- Novas Regras: Cores da Situação --- */
-  .status-aprovado {
-    color: #28a745;
+  /* --- Cores da Situação com alta especificidade --- */
+  #alunos td.status-aprovado {
+    color: #28a745 !important;
     font-weight: bold;
   }
   
-  .status-recuperacao {
-    color: #fd7e14;
+  #alunos td.status-recuperacao {
+    color: #fd7e14 !important;
     font-weight: bold;
   }
   
-  .status-reprovado {
-    color: #dc3545;
+  #alunos td.status-reprovado {
+    color: #dc3545 !important;
     font-weight: bold;
   }
   
