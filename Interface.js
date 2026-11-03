@@ -8,7 +8,18 @@ class Interface {
       geografia: null
     };
   
+    // Guarda o índice do aluno em edição (-1 significa novo cadastro)
+    static #alunoEditandoIndex = -1;
+  
     constructor() {}
+  
+    // Mapeia o texto da situação para a classe de cor CSS
+    static #obterClasseEstado(estado) {
+      if (estado === 'Aprovado') return 'status-aprovado';
+      if (estado === 'Recuperação') return 'status-recuperacao';
+      if (estado === 'Reprovado') return 'status-reprovado';
+      return '';
+    }
   
     // Carrega as notas salvas no formulário ao trocar o seletor de disciplinas
     static carregarNotasDisciplina() {
@@ -84,7 +95,7 @@ class Interface {
       }
     }
   
-    static salvar() {
+    static salvar(turma) {
       let nome = document.getElementById('nome').value;
   
       let a1 = new Aluno(
@@ -96,12 +107,15 @@ class Interface {
         Interface.#notasTemporarias.geografia
       );
   
-      alert('Aluno cadastrado com sucesso!');
+      if (Interface.#alunoEditandoIndex >= 0) {
+        turma[Interface.#alunoEditandoIndex] = a1;
+        alert('Aluno atualizado com sucesso!');
+      } else {
+        turma.push(a1);
+        alert('Aluno cadastrado com sucesso!');
+      }
   
-      // Limpa o formulário e reseta os controles
       Interface.resetarFormulario();
-  
-      return a1;
     }
   
     static resetarFormulario() {
@@ -119,11 +133,40 @@ class Interface {
         geografia: null
       };
   
+      Interface.#alunoEditandoIndex = -1;
+  
       document.getElementById('n1').disabled = true;
       document.getElementById('n2').disabled = true;
       document.getElementById('n3').disabled = true;
   
-      document.querySelector('.btn-salvar').disabled = true;
+      const btnSalvar = document.querySelector('.btn-salvar');
+      btnSalvar.textContent = 'Salvar Aluno';
+      btnSalvar.disabled = true;
+    }
+  
+    // Carrega os dados do aluno de volta no formulário para edição
+    static editar(index, turma) {
+      const aluno = turma[index];
+      if (!aluno) return;
+  
+      Interface.#alunoEditandoIndex = index;
+      document.getElementById('nome').value = aluno.getNome();
+  
+      Interface.#notasTemporarias = {
+        matematica: { ...aluno.getMatematica() },
+        portugues: { ...aluno.getPortugues() },
+        ciencia: { ...aluno.getCiencia() },
+        historia: { ...aluno.getHistoria() },
+        geografia: { ...aluno.getGeografia() }
+      };
+  
+      const btnSalvar = document.querySelector('.btn-salvar');
+      btnSalvar.textContent = 'Atualizar Aluno';
+  
+      Interface.cadastrar();
+      document.getElementById('disciplina').value = '';
+      Interface.carregarNotasDisciplina();
+      Interface.validarPreenchimento();
     }
   
     static listar(turma) {
@@ -156,7 +199,10 @@ class Interface {
         let geo = al.getGeografia();
   
         html += `<div class="card-aluno">
-          <h4>Aluno: ${al.getNome()}</h4>
+          <div class="card-header">
+            <h4>Aluno: ${al.getNome()}</h4>
+            <button class="btn-editar" onclick="editarAluno(${i})">✏️ Editar</button>
+          </div>
           <table>
             <thead>
               <tr>
@@ -169,11 +215,11 @@ class Interface {
               </tr>
             </thead>
             <tbody>
-              <tr><td>Matemática</td><td>${mat.n1}</td><td>${mat.n2}</td><td>${mat.n3}</td><td>${mat.media.toFixed(2)}</td><td>${mat.estado}</td></tr>
-              <tr><td>Português</td><td>${port.n1}</td><td>${port.n2}</td><td>${port.n3}</td><td>${port.media.toFixed(2)}</td><td>${port.estado}</td></tr>
-              <tr><td>Ciência</td><td>${cie.n1}</td><td>${cie.n2}</td><td>${cie.n3}</td><td>${cie.media.toFixed(2)}</td><td>${cie.estado}</td></tr>
-              <tr><td>História</td><td>${hist.n1}</td><td>${hist.n2}</td><td>${hist.n3}</td><td>${hist.media.toFixed(2)}</td><td>${hist.estado}</td></tr>
-              <tr><td>Geografia</td><td>${geo.n1}</td><td>${geo.n2}</td><td>${geo.n3}</td><td>${geo.media.toFixed(2)}</td><td>${geo.estado}</td></tr>
+              <tr><td>Matemática</td><td>${mat.n1}</td><td>${mat.n2}</td><td>${mat.n3}</td><td>${mat.media.toFixed(2)}</td><td class="${Interface.#obterClasseEstado(mat.estado)}">${mat.estado}</td></tr>
+              <tr><td>Português</td><td>${port.n1}</td><td>${port.n2}</td><td>${port.n3}</td><td>${port.media.toFixed(2)}</td><td class="${Interface.#obterClasseEstado(port.estado)}">${port.estado}</td></tr>
+              <tr><td>Ciência</td><td>${cie.n1}</td><td>${cie.n2}</td><td>${cie.n3}</td><td>${cie.media.toFixed(2)}</td><td class="${Interface.#obterClasseEstado(cie.estado)}">${cie.estado}</td></tr>
+              <tr><td>História</td><td>${hist.n1}</td><td>${hist.n2}</td><td>${hist.n3}</td><td>${hist.media.toFixed(2)}</td><td class="${Interface.#obterClasseEstado(hist.estado)}">${hist.estado}</td></tr>
+              <tr><td>Geografia</td><td>${geo.n1}</td><td>${geo.n2}</td><td>${geo.n3}</td><td>${geo.media.toFixed(2)}</td><td class="${Interface.#obterClasseEstado(geo.estado)}">${geo.estado}</td></tr>
             </tbody>
           </table>
         </div><br>`;

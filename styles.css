@@ -1,15 +1,13 @@
-/* Configurações básicas da página */
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
-  max-width: 480px;
+  max-width: 520px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Container dos botões das abas */
 .tabs-container {
   display: flex;
   gap: 5px;
@@ -17,7 +15,6 @@ body {
   padding-bottom: 5px;
 }
 
-/* Estilo dos botões das abas */
 .tab-button {
   flex: 1;
   padding: 10px;
@@ -30,7 +27,6 @@ body {
   transition: background-color 0.2s;
 }
 
-/* Visual do botão da aba selecionada */
 .tab-button.active {
   background-color: #007bff;
   color: white;
@@ -38,19 +34,16 @@ body {
   font-weight: bold;
 }
 
-/* Esconde as abas por padrão */
 .tab-content {
   display: none;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
-/* Mostra apenas a aba ativa */
 .tab-content.active {
   display: flex;
 }
 
-/* Estilo dos inputs e select */
 input, select {
   padding: 8px;
   border: 1px solid #ccc;
@@ -70,7 +63,12 @@ input:focus, select:focus {
   font-size: 12px;
 }
 
-/* Botão para salvar cadastro */
+.divisor {
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 10px 0;
+}
+
 .btn-salvar {
   padding: 10px;
   background-color: #28a745;
@@ -87,11 +85,41 @@ input:focus, select:focus {
   opacity: 0.7;
 }
 
-.lista-alunos {
-  padding: 0;
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
-.card-aluno h4 {
-  margin: 0 0 10px 0;
+.card-header h4 {
+  margin: 0;
   color: #007bff;
+}
+
+.btn-editar {
+  background-color: #ffc107;
+  color: #212529;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.btn-editar:hover {
+  background-color: #e0a800;
+}
+
+.info-turma {
+  background-color: #e9ecef;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.info-turma p {
+  margin: 4px 0;
 }

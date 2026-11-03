@@ -36,45 +36,21 @@ class Aluno {
   }
 
   // Getters e Setters privados
-  getNome() {
-    return this.#nome;
-  }
-  setNome(nome) {
-    this.#nome = nome;
-  }
+  getNome() {return this.#nome;}
+  setNome(nome) {this.#nome = nome;}
 
-  getMatematica() {
-    return this.#matematica;
-  }
-  setMatematica(matematica) {
-    this.#matematica = matematica;
-  }
+  getMatematica() {return this.#matematica;}
+  setMatematica(matematica) {this.#matematica = matematica;}
 
-  getPortugues() {
-    return this.#portugues;
-  }
-  setPortugues(portugues) {
-    this.#portugues = portugues;
-  }
+  getPortugues() {return this.#portugues;}
+  setPortugues(portugues) {this.#portugues = portugues;}
 
-  getCiencia() {
-    return this.#ciencia;
-  }
-  setCiencia(ciencia) {
-    this.#ciencia = ciencia;
-  }
+  getCiencia() {return this.#ciencia;}
+  setCiencia(ciencia) {this.#ciencia = ciencia;}
 
-  getHistoria() {
-    return this.#historia;
-  }
-  setHistoria(historia) {
-    this.#historia = historia;
-  }
+  getHistoria() {return this.#historia;}
+  setHistoria(historia) {this.#historia = historia;}
 
-  getGeografia() {
-    return this.#geografia;
-  }
-  setGeografia(geografia) {
-    this.#geografia = geografia;
-  }
+  getGeografia() {return this.#geografia;}
+  setGeografia(geografia) {this.#geografia = geografia;}
 } // fim da classe

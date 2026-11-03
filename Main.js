@@ -5,10 +5,13 @@ function listarAluno() {
 }
 
 function btnSalvar() {
-  let a = Interface.salvar();
-  turma.push(a);
+  Interface.salvar(turma);
 }
 
 function cadastroAluno() {
   Interface.cadastrar();
+}
+
+function editarAluno(index) {
+  Interface.editar(index, turma);
 }
