@@ -35,9 +35,9 @@
       </select>
 
       <div class="notas-group">
-        <div>Nota 1: <input id="n1" type="number" min="0" max="10" step="0.1" oninput="Interface.registrarNotas()" disabled /></div>
-        <div>Nota 2: <input id="n2" type="number" min="0" max="10" step="0.1" oninput="Interface.registrarNotas()" disabled /></div>
-        <div>Nota 3: <input id="n3" type="number" min="0" max="10" step="0.1" oninput="Interface.registrarNotas()" disabled /></div>
+        <div>Nota 1: <input id="n1" type="text" inputmode="decimal" oninput="Interface.registrarNotas()" disabled /></div>
+        <div>Nota 2: <input id="n2" type="text" inputmode="decimal" oninput="Interface.registrarNotas()" disabled /></div>
+        <div>Nota 3: <input id="n3" type="text" inputmode="decimal" oninput="Interface.registrarNotas()" disabled /></div>
       </div>
 
       <button onclick="btnSalvar()" class="btn-salvar" disabled>Salvar Aluno</button>

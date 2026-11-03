@@ -75,14 +75,6 @@ input:focus, select:focus {
   font-size: 12px;
 }
 
-/* Remove setinhas de número */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-
 /* Botão para salvar cadastro */
 .btn-salvar {
   padding: 10px;
