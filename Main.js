@@ -1,17 +1,14 @@
 let turma = [];
 
-
-function listarAluno(){
-   Interface.listar(turma);
+function listarAluno() {
+  Interface.listar(turma);
 }
 
-
-function btnSalvar(){
+function btnSalvar() {
   let a = Interface.salvar();
   turma.push(a);
 }
 
-
-function cadastroAluno(){
-   Interface.cadastrar();
+function cadastroAluno() {
+  Interface.cadastrar();
 }

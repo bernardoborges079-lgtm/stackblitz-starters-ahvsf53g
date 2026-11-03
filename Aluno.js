@@ -1,38 +1,80 @@
 class Aluno {
   #nome;
-  nota1;
-  nota2;
-  nota3;
-  estado;
-  media;
-  constructor(nome, nota1, nota2, nota3) {
+  #matematica;
+  #portugues;
+  #ciencia;
+  #historia;
+  #geografia;
+
+  constructor(nome, matematica, portugues, ciencia, historia, geografia) {
     this.#nome = nome;
-    this.nota1 = nota1;
-    this.nota2 = nota2;
-    this.nota3 = nota3;
+    this.#matematica = matematica;
+    this.#portugues = portugues;
+    this.#ciencia = ciencia;
+    this.#historia = historia;
+    this.#geografia = geografia;
   }
-  gerarMedia(nota1, nota2, nota3) {
-    let m = (nota1 + nota2 + nota3) / 3;
-    this.media = m;
-    return m;
-  }
-  gerarEstado(media) {
-    let est;
+
+  // Método utilitário para gerar a média e situação da matéria
+  static calcularDisciplina(n1, n2, n3) {
+    let media = (n1 + n2 + n3) / 3;
+    let estado;
     if (media >= 6) {
-      est = 'Aprovado';
+      estado = 'Aprovado';
     } else if (media >= 3) {
-      est = 'Recuperação';
+      estado = 'Recuperação';
     } else {
-      est = 'Reprovado';
+      estado = 'Reprovado';
     }
-    this.estado = est;
-    return est;
+    return {
+      n1: n1,
+      n2: n2,
+      n3: n3,
+      media: Number(media.toFixed(2)),
+      estado: estado
+    };
   }
-  getNome(){
+
+  // Getters e Setters privados
+  getNome() {
     return this.#nome;
   }
-  setNome(nome){
+  setNome(nome) {
     this.#nome = nome;
   }
- } //fim da classe
- 
+
+  getMatematica() {
+    return this.#matematica;
+  }
+  setMatematica(matematica) {
+    this.#matematica = matematica;
+  }
+
+  getPortugues() {
+    return this.#portugues;
+  }
+  setPortugues(portugues) {
+    this.#portugues = portugues;
+  }
+
+  getCiencia() {
+    return this.#ciencia;
+  }
+  setCiencia(ciencia) {
+    this.#ciencia = ciencia;
+  }
+
+  getHistoria() {
+    return this.#historia;
+  }
+  setHistoria(historia) {
+    this.#historia = historia;
+  }
+
+  getGeografia() {
+    return this.#geografia;
+  }
+  setGeografia(geografia) {
+    this.#geografia = geografia;
+  }
+} // fim da classe
