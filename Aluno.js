@@ -1,15 +1,13 @@
 class Aluno {
-  nome;
+  #nome;
   matematica;
   portugues;
   ciencia;
   historia;
   geografia;
-  media;
-  estado;
 
   constructor(nome, matematica, portugues, ciencia, historia, geografia) {
-    this.nome = nome;
+    this.#nome = nome;
     this.matematica = matematica;
     this.portugues = portugues;
     this.ciencia = ciencia;
@@ -17,14 +15,11 @@ class Aluno {
     this.geografia = geografia;
   }
 
-  // Gera a média a partir de 3 notas
   gerarMedia(nota1, nota2, nota3) {
     let m = (nota1 + nota2 + nota3) / 3;
-    this.media = m;
-    return Number(m.toFixed(1)); // Retorna a média arredondada com 1 casa decimal
+    return Number(m.toFixed(1));
   }
 
-  // Gera o estado de aprovação com base na média da matéria
   gerarEstado(media) {
     let est;
     if (media >= 6) {
@@ -34,7 +29,14 @@ class Aluno {
     } else {
       est = 'Reprovado';
     }
-    this.estado = est;
     return est;
   }
-} // fim da classe
+
+  getNome() {
+    return this.#nome;
+  }
+
+  setNome(nome) {
+    this.#nome = nome;
+  }
+}
