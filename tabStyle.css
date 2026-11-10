@@ -1,88 +1,87 @@
-/* Tabela de alunos */
 #alunos table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    text-align: left;
-  }
-  
-  /* Cabeçalho */
-  #alunos th {
-    background-color: #f1f3f5;
-    color: #333;
-    padding: 10px 8px;
-    font-weight: bold;
-    text-align: left;
-  }
-  
-  /* Células dos alunos */
-  #alunos td {
-    padding: 8px;
-    border-bottom: 1px solid #e5e5e5;
-    color: #333;
-  }
-  
-  /* Efeito ao passar o mouse */
-  #alunos tr:hover td {
-    background-color: #f8f9fa;
-  }
-  
-  /* Alinhamento de notas e médias */
-  #alunos th:nth-child(n+2),
-  #alunos td:nth-child(n+2) {
-    text-align: center;
-  }
-  
-  /* Cantos arredondados do cabeçalho */
-  #alunos th:first-child {
-    border-radius: 6px 0 0 6px;
-  }
-  
-  #alunos th:last-child {
-    border-radius: 0 6px 6px 0;
-  }
-  
-  /* --- Cores da Situação com alta especificidade --- */
-  #alunos td.status-aprovado {
-    color: #28a745 !important;
-    font-weight: bold;
-  }
-  
-  #alunos td.status-recuperacao {
-    color: #fd7e14 !important;
-    font-weight: bold;
-  }
-  
-  #alunos td.status-reprovado {
-    color: #dc3545 !important;
-    font-weight: bold;
-  }
-  
-  /* Estilo do cabeçalho do card com o botão de edição */
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-  
-  .card-header h4 {
-    margin: 0;
-    color: #007bff;
-  }
-  
-  .btn-editar {
-    background-color: #ffc107;
-    color: #212529;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 12px;
-    transition: background-color 0.2s;
-  }
-  
-  .btn-editar:hover {
-    background-color: #e0a800;
-  }
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+
+#alunos th {
+  background-color: #f1f3f5;
+  color: #333;
+  padding: 10px 8px;
+  font-weight: bold;
+  text-align: left;
+}
+
+#alunos td {
+  padding: 8px;
+  border-bottom: 1px solid #e5e5e5;
+  color: #333;
+}
+
+#alunos tr:hover td {
+  background-color: #f8f9fa;
+}
+
+#alunos th:nth-child(n+2),
+#alunos td:nth-child(n+2) {
+  text-align: center;
+}
+
+#alunos th:first-child {
+  border-radius: 6px 0 0 6px;
+}
+
+#alunos th:last-child {
+  border-radius: 0 6px 6px 0;
+}
+
+#alunos td.status-aprovado {
+  color: #28a745 !important;
+  font-weight: bold;
+}
+
+#alunos td.status-recuperacao {
+  color: #fd7e14 !important;
+  font-weight: bold;
+}
+
+#alunos td.status-reprovado {
+  color: #dc3545 !important;
+  font-weight: bold;
+}
+
+.card-aluno {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.card-header h4 {
+  margin: 0;
+  color: #007bff;
+}
+
+.btn-editar {
+  background-color: #ffc107;
+  color: #212529;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.btn-editar:hover {
+  background-color: #e0a800;
+}

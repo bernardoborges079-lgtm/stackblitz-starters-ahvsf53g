@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./tabStyle.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="Turma.js" defer></script>
     <script src="Aluno.js" defer></script>
     <script src="Interface.js" defer></script>
     <script src="Main.js" defer></script>
@@ -13,14 +14,29 @@
   <body>
     <!-- Botões para trocar de aba -->
     <div class="tabs-container">
-      <button class="tab-button active" id="btn-cadastrar" onclick="cadastroAluno()">Cadastrar</button>
-      <button class="tab-button" id="btn-listar" onclick="listarAluno()">
-        Listar Alunos
-      </button>
+      <button class="tab-button active" id="btn-cadastrar-turma" onclick="cadastroTurma()">Cadastrar Turma</button>
+      <button class="tab-button" id="btn-cadastrar-aluno" onclick="cadastroAluno()">Cadastrar Aluno</button>
+      <button class="tab-button" id="btn-listar" onclick="listarAluno()">Listar Alunos</button>
     </div>
 
-    <!-- Conteúdo da Aba 1: Cadastrar -->
-    <div id="tab-cadastrar" class="tab-content active">
+    <!-- Aba 1: Cadastrar Turma -->
+    <div id="tab-cadastrar-turma" class="tab-content active">
+      <label for="nomeCurso">Nome do Curso:</label>
+      <input id="nomeCurso" type="text" placeholder="Ex: Informática" />
+
+      <label for="professor">Nome do Professor:</label>
+      <input id="professor" type="text" placeholder="Ex: Prof. Carlos" />
+
+      <button onclick="btnSalvarTurma()" class="btn-salvar">Salvar Turma</button>
+    </div>
+
+    <!-- Aba 2: Cadastrar Aluno -->
+    <div id="tab-cadastrar-aluno" class="tab-content">
+      <label for="select-turma">Selecione a Turma:</label>
+      <select id="select-turma" onchange="Interface.validarPreenchimento()">
+        <option value="">Selecione uma turma</option>
+      </select>
+
       <label for="nome">Nome do Aluno:</label>
       <input id="nome" type="text" oninput="Interface.validarPreenchimento()" placeholder="Digite o nome do aluno" />
 
@@ -40,15 +56,14 @@
         <div>Nota 3: <input id="n3" type="text" inputmode="decimal" oninput="Interface.registrarNotas()" disabled /></div>
       </div>
 
-      <button onclick="btnSalvar()" class="btn-salvar" disabled>Salvar Aluno</button>
+      <button id="btn-salvar-aluno" onclick="btnSalvar()" class="btn-salvar" disabled>Salvar Aluno</button>
     </div>
 
-    <!-- Conteúdo da Aba 2: Listar -->
+    <!-- Aba 3: Listar -->
     <div id="tab-listar" class="tab-content">
-      <h3>Alunos Cadastrados</h3>
+      <h3>Turmas e Alunos Cadastrados</h3>
       <div id="alunos" class="lista-alunos">
-        <!-- O JavaScript vai renderizar as tabelas dos alunos aqui -->
-        <p>Nenhum aluno cadastrado ainda.</p>
+        <p>Nenhuma turma cadastrada ainda.</p>
       </div>
     </div>
   </body>

@@ -1,17 +1,25 @@
-let turma = [];
+let turmas = [];
 
-function listarAluno() {
-  Interface.listar(turma);
+function cadastroTurma() {
+  Interface.cadastrarTurma();
 }
 
-function btnSalvar() {
-  Interface.salvar(turma);
+function btnSalvarTurma() {
+  Interface.salvarTurma(turmas);
 }
 
 function cadastroAluno() {
-  Interface.cadastrar();
+  Interface.cadastrarAluno(turmas);
 }
 
-function editarAluno(index) {
-  Interface.editar(index, turma);
+function btnSalvar() {
+  Interface.salvar(turmas);
+}
+
+function listarAluno() {
+  Interface.listar(turmas);
+}
+
+function editarAluno(turmaIndex, alunoIndex) {
+  Interface.editar(turmaIndex, alunoIndex, turmas);
 }
