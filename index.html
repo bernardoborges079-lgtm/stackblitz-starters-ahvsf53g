@@ -22,10 +22,10 @@
     <!-- Aba 1: Cadastrar Turma -->
     <div id="tab-cadastrar-turma" class="tab-content active">
       <label for="nomeCurso">Nome do Curso:</label>
-      <input id="nomeCurso" type="text">
+      <input id="nomeCurso" type="text" placeholder= >
 
       <label for="professor">Nome do Professor:</label>
-      <input id="professor" type="text">
+      <input id="professor" type="text" placeholder= >
 
       <button onclick="btnSalvarTurma()" class="btn-salvar">Salvar Turma</button>
     </div>
@@ -38,7 +38,7 @@
       </select>
 
       <label for="nome">Nome do Aluno:</label>
-      <input id="nome" type="text" oninput="Interface.validarPreenchimento()">
+      <input id="nome" type="text" oninput="Interface.validarPreenchimento()" placeholder="Digite o nome do aluno" />
 
       <label for="disciplina">Selecione a Disciplina:</label>
       <select id="disciplina" onchange="Interface.carregarNotasDisciplina()">

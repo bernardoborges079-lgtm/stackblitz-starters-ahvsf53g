@@ -22,4 +22,3 @@ function listarAluno() {
 
 function editarAluno(turmaIndex, alunoIndex) {
   Interface.editar(turmaIndex, alunoIndex, turmas);
-}
